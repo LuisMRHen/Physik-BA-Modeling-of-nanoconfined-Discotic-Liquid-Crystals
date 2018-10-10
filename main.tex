@@ -1,0 +1,385 @@
+% FÃŒr Bindekorrektur als optionales Argument "BCORfaktormitmaÃu\"einheit", dann
+% sieht auch Option "twoside" vernÃŒnftig aus
+% NÃ€heres zu "scrartcl" bzw. "scrreprt" und "scrbook" siehe KOMA-Skript Doku
+\documentclass[12pt,a4paper,twoside,titlepage,headinclude,bibtotoc,parskip=half]{report}
+%\documentclass[twoside,12pt,headinclude,bibliography=totocnumbered,parskip=half-]{report}
+
+\usepackage[dvipsnames]{xcolor}
+\usepackage{geometry}
+\geometry{a4paper, top=34mm, inner=35mm, outer=25mm, bottom=36mm,
+headsep=10mm, footskip=12mm}
+
+%---- Allgemeine Layout Einstellungen ------------------------------------------
+
+% FÃŒr Kopf und FuÃu\"zeilen, siehe auch KOMA-Skript Doku
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+
+%% Font
+
+
+
+%	\setheadsepline{0.5pt}[\color{black}]
+
+
+%Einstellungen fÃŒr Figuren- und Tabellenbeschriftungen
+%\setkomafont{captionlabel}{\sffamily\bfseries}
+%\setcapindent{0em}
+
+
+%\usepackage{enumitem}
+\usepackage{chemfig}
+\usepackage{rotating}
+\usepackage{multicol}
+\usepackage{appendix}
+%\usepackage{physics}
+
+
+
+%---- Weitere Pakete -----------------------------------------------------------
+% Die Pakete sind alle in der TeX Live Distribution enthalten. Wichtige Adressen
+% www.ctan.org, www.dante.de
+
+% SprachunterstÃŒtzung
+\usepackage[english]{babel}
+
+% Benutzung von Umlauten direkt im Text
+% entweder "latin1" oder "utf8"
+\usepackage[utf8]{inputenc}
+% Pakete mit Mathesymbolen und zur Beseitigung von SchwÃ€chen der Mathe-Umgebung
+\usepackage{latexsym,exscale,stmaryrd,amssymb,amsmath,mathrsfs}
+
+\usepackage{amsthm}
+\newtheorem{theorem}{Theorem}
+
+\usepackage[inline]{enumitem}
+\usepackage{mathtools}
+
+\usepackage{bbold}
+
+% Weitere Symbole
+\usepackage[nointegrals]{wasysym}
+\usepackage{eurosym}
+
+% Anderes Literaturverzeichnisformat
+%\usepackage[square,sort&compress]{natbib}
+
+% FÃŒr Farbe
+\usepackage{color}
+
+% Zur Graphikausgabe
+%Beipiel: \includegraphics[width=\textwidth]{grafik.png}
+\usepackage{graphicx}
+\usepackage{geometry}
+% Text umflieÃu\"t Graphiken und Tabellen
+% Beispiel:
+% \begin{wrapfigure}[Zeilenanzahl]{"l" oder "r"}{breite}
+%   \centering
+%   \includegraphics[width=...]{grafik}
+%   \caption{Beschriftung} 
+%   \label{fig:grafik}
+% \end{wrapfigure}
+\usepackage{wrapfig}
+
+% Mehrere Abbildungen nebeneinander
+% Beispiel:
+% \begin{figure}[htb]
+%   \centering
+%   \subfigure[Beschriftung 1\label{fig:label1}]
+%   {\includegraphics[width=0.49\textwidth]{grafik1}}
+%   \hfill
+%   \subfigure[Beschriftung 2\label{fig:label2}]
+%   {\includegraphics[width=0.49\textwidth]{grafik2}}
+%   \caption{Beschriftung allgemein}
+%   \label{fig:label-gesamt}
+% \end{figure}
+\usepackage{subfigure}
+% Caption neben Abbildung
+% Beispiel:
+% \sidecaptionvpos{figure}{"c" oder "t" oder "b"}
+% \begin{SCfigure}[rel. Breite (normalerweise = 1)][hbt]
+%   \centering
+%   \includegraphics[width=0.5\textwidth]{grafik.png}
+%   \caption{Beschreibung}
+%   \label{fig:}
+% \end{SCfigure}
+
+% Befehl fÃŒr "Entspricht"-Zeichen
+\newcommand{\corresponds}{\ensuremath{\mathrel{\widehat{=}}}}
+
+%\newcommand{\defeq}{\coloneqq}
+%\newcommand{\eqdef}{\eqqcolon}
+\newcommand{\defeq}{\equiv} % marco
+\newcommand{\eqdef}{\equiv}
+
+\newcommand{\leteq}{\overset{!}{=}}
+%\newcommand{\emk}{\mathcal{E}}
+
+%% personal flavor
+\newcommand{\beq}{\begin{equation}}
+\newcommand{\eeq}{\end{equation}}
+\newcommand{\beeq}[1]{\beq #1 \eeq}
+
+%% derivatives
+% totals
+\newcommand{\dv}[2]{\frac{\text{d}#1}{\text{d}#2}}
+\newcommand{\dd}[1]{\frac{\text{d}}{\text{d}#1}}
+\newcommand{\de}{\text{d}}
+\newcommand{\deq}[2]{\text{d}_{{#2}}{#1}}
+\newcommand{\D}{\text{D}}
+
+% partials
+\newcommand{\pdd}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\pddn}[3]{\frac{\partial^{#3} #1}{\partial {#2}^{#3}}}
+\newcommand{\pde}[2]{\partial_{#2}{#1}}
+\newcommand{\pden}[3]{\partial_{#2}^{#3}{#1}}
+
+\newcommand{\Span}[1]{\text{span}\left(#1\right)}
+\newcommand{\Set}[2]{\left\lbrace #1 \,\middle| \, #2 \right\rbrace}
+\newcommand{\expec}[1]{\langle #1 \rangle}
+\newcommand{\Div}{\nabla\cdot}
+\newcommand{\grad}{\nabla}
+
+\newcommand{\unitvec}[1]{\mathbf{\hat #1}}
+\newcommand{\ve}[1]{{\mathbf{#1}}}
+
+\renewcommand{\phi}{\varphi}
+
+\newcommand{\id}{\mathbb{1}}
+%\renewcommand{\labelenumi}{(\roman{enumi})}
+
+
+\newcommand{\noneq}{nonequilibrium }
+\newcommand{\Noneq}{Nonequilibrium }
+\newcommand{\CKE}{{Chapman-Kolmogorov} equation }
+\newcommand{\FPE}{{Fokker-Planck} equation }
+\newcommand{\ME}{{Master} equation }
+\newcommand{\KM}{{Kramer-Moyal} }
+\newcommand{\Poincare}{Poincar\'e }
+\newcommand{\cf}{\textit{cf. }}
+\newcommand{\DSK}{\text{DS}(\mathcal{K})}
+\newcommand{\DSL}{\text{DS}(\mathcal{L})}
+\newcommand{\drift}{\mathcal{K}}
+\newcommand{\diff}{\mathcal{D}}
+\newcommand{\crossop}{\mathcal{R}}
+\newcommand{\ldrift}{\mathcal{L}}
+\newcommand{\cfam}{\mathcal{C}}
+\newcommand{\paxis}{\hat{p}}
+
+\newcommand{\Eqref}[1]{Eq. \eqref{#1}}
+
+\newcommand{\titel}{Modeling of nanoconfined Discotic Liquid Crystals}
+
+\newcommand{\NOTE}[1]{\textcolor{RubineRed}{#1}}
+
+
+%\renewcommand{\chapter}[1]{\chapter{#1}\vspace*{5cm}}
+%\renewcommand*{\chapterheadstartvskip}{\vspace*{5cm}}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Disable auto indentation
+%\newlength\tindent
+%\setlength{\tindent}{\parindent}
+%\setlength{\parindent}{15pt}
+%\renewcommand{\indent}{\hspace*{4pt}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\widowpenalty10000
+\clubpenalty10000
+
+
+
+%FÃŒr chemische Formeln (von www.dante.de)
+%% Anpassung an LaTeX(2e) von Bernd Raichle
+\makeatletter
+\DeclareRobustCommand{\chemical}[1]{%
+  {\(\m@th
+   \edef\resetfontdimens{\noexpand\)%
+       \fontdimen16\textfont2=\the\fontdimen16\textfont2
+       \fontdimen17\textfont2=\the\fontdimen17\textfont2\relax}%
+   \fontdimen16\textfont2=2.7pt \fontdimen17\textfont2=2.7pt
+   \mathrm{#1}%
+   \resetfontdimens}}
+\makeatother
+
+%\setlength{\voffset}{-20pt}
+
+%%%Fancy - Options%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Fancy
+\renewcommand{\chaptermark}[1]{\markboth{ \thechapter. #1}{}}
+
+%\usepackage[font=normal,labelfont=bf,font=sf]{caption} % sans-serif font
+\usepackage[font=normal,labelfont=bf]{caption} % normal options
+%\captionsetup[]
+
+\fancyhf{}
+\renewcommand{\footrulewidth}{.5pt}
+%\cfoot{\thepage}
+\renewcommand{\sectionmark}[1]{\markright{\thesection\ #1}}
+\fancyhead[LE]{\rightmark}
+\fancyhead[RO]{\leftmark }
+\fancyfoot[LE]{ \thepage}
+\fancyfoot[RO]{ \thepage }
+
+\addtolength{\footskip}{10pt}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}} 
+
+\renewcommand{\arraystretch}{1.5}
+\setlength{\tabcolsep}{5pt}
+\usepackage{pgf}
+
+\renewcommand{\theenumi}{(\roman{enumi})}
+\renewcommand{\labelenumi}{\theenumi}
+\renewcommand{\theenumii}{\alph{enumii})}
+\renewcommand{\labelenumii}{\theenumii}
+
+\usepackage{listings}
+%\usepackage{gnuplottex}
+\usepackage{sidecap}
+\usepackage{float}
+\usepackage{psfrag}
+\usepackage{caption}
+\usepackage{todonotes}
+
+% erkennen von urls
+\usepackage[hyphens]{url}
+% Klickbare links
+\usepackage[hidelinks,colorlinks=true,allcolors=black,citecolor=cyan]{hyperref}
+\usepackage{cite} % grouping of references
+
+%\bibliographystyle{joscha_mpi}
+
+
+%%%%%%%%%%%%%%fu\"r Tabellenspalten die automatisch im Mathemodus sind: Gro§buchstaben
+\usepackage{array}
+\newcolumntype{L}{>{\(}l<{\)}}
+\newcolumntype{C}{>{\(}c<{\)}}
+\newcolumntype{R}{>{\(}r<{\)}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%		%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%		%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%		pdflatex -shell-escape BachelorArbeit.tex	%zum Compilieren der Plots
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%		%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%		%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%		%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%		%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%		
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%		%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%		%
+
+\definecolor{gruen}{RGB}{0,160,0}
+\lstset{ 
+    language=C, % choose the language of the code
+    basicstyle=\fontfamily{pcr}\selectfont\tiny,
+    keywordstyle=\color{gruen}\bfseries, % style for keywords
+    numbers=none, % where to put the line-numbers
+    numberstyle=\tiny, % the size of the fonts that are used for the line-numbers     
+    %backgroundcolor=\color{darkgray},
+    showspaces=false, % show spaces adding particular underscores
+    showstringspaces=false, % underline spaces within strings
+    showtabs=false, % show tabs within strings adding particular underscores
+    frame=single, % adds a frame around the code
+    tabsize=8, % sets default tabsize to 2 spaces
+    numberstyle=\tiny\color{darkgray},
+    rulecolor=\color{black},
+    captionpos=b, % sets the caption-position to bottom
+    breaklines=true, % sets automatic line breaking
+    breakatwhitespace=false, 
+    stringstyle=\color{red},
+    commentstyle=\itshape\color{blue},
+}
+
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{3}
+\usepackage{titlesec}
+
+\titleformat{\chapter}[hang]
+  {\normalfont\huge\bfseries}{\chaptername~ \thechapter:}{20pt}{\huge}
+%\titlespacing*{\chapter}{0pt}{-25pt}{10pt}
+\titlespacing*{\chapter}{0pt}{-25pt}{4cm} % see https://tex.stackexchange.com/a/53341
+
+
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%		
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\input{titlepage}
+
+\iftrue %this is for the real thing
+\input{titlepage}
+\newpage
+\thispagestyle{empty}
+\quad
+\newpage
+\setcounter{page}{1}
+\pagenumbering{roman}
+
+\tableofcontents
+
+\newpage
+\thispagestyle{empty}
+\quad
+\newpage
+\fi
+
+\iffalse
+\tableofcontents
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\fi
+
+
+\pagenumbering{arabic}
+\numberwithin{equation}{chapter}
+
+\thispagestyle{empty}
+
+
+\setcounter{page}{1}
+
+
+\input{introduction}
+
+\input{theory}
+
+\input{implementation}
+
+\input{results}
+
+\input{conclusion}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\iftrue
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+%\bibliographystyle{unsrt}
+\bibliographystyle{joscha_mpi}
+\bibliography{citations.bib}
+~\newpage
+\thispagestyle{empty}
+%~\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\input{appendix}
+
+
+
+\fi
+\end{document}

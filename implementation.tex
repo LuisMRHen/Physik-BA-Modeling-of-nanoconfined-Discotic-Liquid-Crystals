@@ -1,0 +1,47 @@
+\chapter{Implementation}
+\label{chap:implementation}
+\vspace{2cm}
+
+\section{Reduced Units and Model Parameters}
+
+Computationally, it is favourable to use reduced units in the simulations as they bring simplifications since we only have one type of particle. We set the fluid-fluid interaction parameter $\epsilon_0$ as well as the molecular diameter $\sigma_{\text{ee}}$ to one. From this the units of other measurable quantities change according to Table \ref{tab:reducedunits} \cite{allen1987computer }.
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|c|c|}
+    \hline
+        quantity  & unit dependency \\ \hline \hline
+        length  &  $\sigma_{\text{ee}} = 1$ \\ \hline
+        energy  & $\epsilon_0 =1 $ \\ \hline
+        temperature & $T^{*} = k_{B}T/\epsilon_0$ \\ \hline
+        pressure & $P^{*} = P\sigma_{\text{ee}}^3/\epsilon_0 $\\ \hline
+        volume & $V^{*} = V/\sigma_{\text{ee}}^3 $\\ \hline
+    \end{tabular}
+    \caption{Reduced units of the used quantities}
+    \label{tab:reducedunits}
+\end{table}
+With just reduced units however, the system is not fully parametrized. With the model potentials presented in Section \ref{subsec:potentials}, we set the remaining parameters as shown in Table \ref{tab:modelparam}.
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|c|c|}
+    \hline
+        parameter & value\\ \hline \hline
+        $ \sigma_{\text{ff}}/\sigma_{\text{ee}} $ & $ 0.2$ \\ \hline
+        $\epsilon_{\text{ff}}/\epsilon_{\text{ss}} $ & $ 0.2$\\ \hline
+        $\epsilon_{\text{fw}} $ & $ 8$ \\ \hline
+        $P^*$ & $ 50 $ \\ \hline
+    \end{tabular}
+    \caption{Parameters used in this work for the Gay-Bern potential (fluid-fluid interaction) and modified Lennard-Jones potential (fluid-colloid interaction) }
+    \label{tab:modelparam}
+\end{table}
+The size anisotropy in the Gay-Berne potential is suitable to model an archetypal discotic molecule (HAT6) \cite{sentker2018quantized,caprion2003influence}. Following the work of Sentker, Zantop \textit{et al.} \cite{sentker2018quantized} we chose the fluid-wall interaction parameter to reproduce the quantized self-assembly of concentric rings in the confined system. The fluid-colloid interaction $\epsilon_{\text{cf}}$ was changed according to the specific system and the value is stated in the appropriate section.
+
+\section{Simulations}
+
+The simulations were performed with the aforementioned parallel tempering Monte Carlo algorithm.
+There was an existing code for bulk simulations with periodic boundary conditions and cylindrically confined simulations with periodic boundary conditions in the $z$-direction, which I changed to include the colloid interactions. 
+
+To produce an equilibrated system, the system performs $3\cdot10^5$ steps according to the isothermal-isobaric Monte Carlo algorithm delineated in Sec. \ref{subsubsec:isothermalisobaricMC} for $N_T$ systems with different temperatures. 
+After each step, a system swap is then attempted according to Sec.\ref{subsubsec:paralleltemp} for two random systems with adjacent temperatures. After the equilibration steps, the system will perform $5\cdot10^4$ additional steps, logging the system size, positions and orientations at every temperature every 500 steps to produce 100 ensemble samples. To reduce correlations between samples the simulations were repeated and the relevant observables were computed with all samples from the respective systems. 
+
+To compute the in Sec.\ref{subsec:orderparameters} mentioned order parameters with the samples I wrote programs in \texttt{Python}.
