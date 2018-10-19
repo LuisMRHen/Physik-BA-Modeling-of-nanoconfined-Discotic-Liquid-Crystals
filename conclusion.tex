@@ -1,2 +1,27 @@
 \chapter{Conclusions}
 \vspace{2cm}
+\iftrue
+
+
+\textbf{Confinement}
+
+We have seen that edge-on confinement is in general compatible with the structure induced by the cylindrical confinement. Moreover it induces an earlier phase transition, i.e. at higher temperatures than without a colloid. 
+Small colloids however, do not influence the behaviour of the system. This is probably due to how the potential is calculated, only for larger sized colloids  ($D^*>5$) can the surface geometry of the colloid properly influence the system in a non-trivial way. This was also observed for every system we studied in this work.
+
+In the face-on case we observed that the induced structures were not compatible at all. We saw two competing effects, the concentric rings induced by the cylindrical confinement and a face-on layers around the colloid, leading to the seen axially aligned logpile configurations surrounded by concentric rings. These two competing effects introduce a frustration lowering the phase trasition temperature as the colloid diameter increases.  
+
+
+\textbf{Bulk}
+
+At a potential strength of $\epsilon_{\text{cf}}= 32\epsilon_{\text{cf}}$ there is not much to be seen. The introduction of a colloid does not seem to disturb the system very much, except for a little of the phase transition temperature. Even for the large colloids the nematic order parameter tends towards $1$, which suggests that no layers of molecules form around the colloid. However, due to the slightly higher transition temperature, the colloid probably serves as some sort of nucleating agent. 
+
+
+
+
+Increasing the potential to $\epsilon_{\text{cf}}= 80\epsilon_{\text{ff}}$ we see more substantial results. For smaller colloid sizes ($D^*\in \{6,7,8\}$) we see no difference in the phase transition, whereas with a colloid of diameter $D^*=9.0$ the transition is shifted towards a colder temperature, and with a colloid of diameter $D^*=10.0$ the transition doesn't even appear in the probed temperature range.
+
+Looking at the the radial density, we can definitely see the formation of layers around the colloid, where the local bond order on these layers is lower than outside, obviously due to the impossibility of formation of radially aligned columns around the colloid.
+
+
+An as of now unfortunately unavoidable factor in these simulations is the small size effect, especially noticeable in Fig. \ref{fig:bfosnapshots}. As mentioned in the beginning of this section, increasing the system size may increase the running time by a lot, since the more particles there are, the more steps are required to reach equilibrium. I will try to implement a non-cubic periodic unit cell and see if the improvement is significant.
+

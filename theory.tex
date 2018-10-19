@@ -172,7 +172,7 @@ The Heaviside function $\theta$ ensures a slicing of the space into sheets with 
 Both the columnar and crystal phases exhibit sharp peaks in the perpendicular pair correlation at the positions of a hexagonal lattice, i.e., for $r_{\perp} \in \{ \sqrt{1+n+n^2}: n \in \mathbb{N}\}$. Since in the columnar phase, the particles in the columns behave like a one-dimensional liquid, the parallel pair correlation $g_\parallel$ will only show the short term correlations present in a liquid, whereas in the crystal phase it will exhibit the sharp peaks characteristic of crystals.
 
 \subsubsection{Local order parameters}
-In complex geometries, a global orientation of the particles may never occur and therefore investigating a local order parameter is necessary. In this section we will present a few order parameters with which we can investigate the local structure.
+In complex geometries, a global orientation of the particles may never occur and therefore investigating order parameters locally is necessary. In this section we will briefly present a few order parameters with which we can investigate the local structure.
 \paragraph {Local nematic order parameter}
 
 The local nematic order parameter is calculated by averaging the nematic order at a neighbourhood $n_i$ of a particle $i$ over every particle.
@@ -193,9 +193,21 @@ $\rho(r) = (1/\pi r^2 h) (1/N) \sum_i \delta (r_i-r)$
 \fi
 \paragraph{Averaged bond order parameter}
 
-When investigating the local molecular order, we use the spatially resolved average local bond order parameter $\overline{q}_l(i)$ as described by Lechner and Dellago \cite{lechner2008accurate}.
+When investigating the local molecular order, we use the spatially resolved average local bond order parameter $\overline{q}_l(i)$ as introduced by Lechner and Dellago \cite{lechner2008accurate}. The average local bond order parameter of the $i$-th particle is thus defined as
+\begin{align}
+\overline{q}_l(i) = \sqrt{\frac{4 \pi}{2l+1}\displaystyle\sum_{m=-l}^{l} \left|\overline{q}_{lm}(i)\right|^2}
+\end{align}
+where
+\begin{align}
+\overline{q}_{lm}(i) = \frac{1}{|\Tilde{N}_b(i)|} \displaystyle\sum_{k\in \Tilde{N}_b(i) } q_{lm}(k),
+\end{align}
 
+and the local orientational order $q_{lm}(i)$ is
 
+\begin{align}
+    q_{lm}(i) = \frac{1}{|N_b(i)|} \displaystyle\sum_{j\in \Tilde{N}_b(i) } Y_{lm}(r_{ij}),
+\end{align}
+where $N_b(i)$ is the set of nearest neighbours excluding $i$ and $\Tilde{N}_b(i)=N_b(i) \cup {i}$. Using this order parameter we can determine  locally with high accuracy whether a particle is in a crystal or a liquid.
 
 
 
